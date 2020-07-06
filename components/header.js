@@ -1,56 +1,71 @@
-import Nav from './navBar'
-import styled from 'styled-components'
-import Link from 'next/link'
+import st from './styles/header.module.css'
+import Navbar from './Navbar'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
-const Logoo = styled.h1`
-       font-size:2rem;
-       margin-left:2rem;
-       position:relative;
-       z-index:2;
-       transform:skew(-7deg);
-       a {
-           text-decoration:none;
-           padding:0.5rem 1rem;
-           background: red;
-           color:white;
-           text-transform:uppercase;
 
-       }
-       @media (max-width:1300px){
-           margin:0;
-           text-align:center;
-       }
-`;
+export default class Header extends React.Component {
+    constructor(props) {
+        super(props)
 
-const StyledHeader = styled.header`
-         .bar {
-             border-bottom:10px solid black;
-             display:grid;
-             grid-template-columns:auto 1fr;
-             justify-content:space-between;
-             align-items:stretch;
-             @media (max-width:1300px){
-                 grid-template-columns:1fr;
-                 justify-content:center;
-             }
-         }
-`
+        this.state = {
+            changeIcon: true,
+            iclasses: faBars,
+            overlayClasses: [st.overlay,],
 
-const Header = ()=>{
 
-    return (
-        <StyledHeader>
-        <div className="bar">
-          <Logoo><Link href="/"><a>Todo</a></Link></Logoo>
-           <Nav /> 
-        
-          </div>
-          <div className="sub-bar">  
-           
-        </div>
-        <div></div>
-        </StyledHeader>
-    )
+        }
+    }
+
+
+    toggler = () => {
+
+
+        if (this.state.changeIcon) {
+            this.setState({
+
+                overlayClasses: [st.overlay, st['menu-open']],
+                changeIcon: false,
+                iclasses: faTimes,
+
+
+            })
+        }
+        else {
+            this.setState({
+                overlayClasses: [st.overlay,],
+                changeIcon: true,
+                iclasses: faBars,
+            })
+
+        }
+
+
+    }
+
+    render() {
+
+
+        let overlayClasses = this.state.overlayClasses.join(' ')
+        return (
+            <div className={st.fullcontainer}>
+                <header className={st.header}>
+                    <div className={st.menuToggle} id={st.hamburger} onClick={this.toggler}>
+                        <FontAwesomeIcon icon={this.state.iclasses} />
+                    </div>
+
+                    <div className={overlayClasses} ></div>
+
+                    <div className={st.container}>
+                        <Navbar isadd={!this.state.changeIcon} />
+
+                    </div>
+
+
+
+                </header>
+            </div>
+        )
+    }
 }
 
-export default Header

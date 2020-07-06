@@ -1,22 +1,29 @@
+import ns from './styles/navbar.module.css'
 import Link from 'next/link'
-import styled from 'styled-components'
-import NavStyles from './styles/navStyles'
+import LinkStyles from './styles/styledLink'
+export default class Navbar extends React.Component {
+    constructor(props) {
+        super(props)
 
-const Stylethis = styled.a`
-          text-decoration:none;
-          color:black;
-          font-weight:bold;
-          font-family:sans-serif;
-`
 
-const Navbar = ()=>{
-     
-    return (
-      <NavStyles>
-          <Link href="/"><Stylethis>Home</Stylethis></Link>
-          <Link href="/about"><Stylethis>About</Stylethis></Link>
-      </NavStyles>
-    )
+    }
+
+
+    render() {
+        let classes = this.props.isadd ? [ns.nav, ns['menu-open']].join(' ') : ns.nav
+        return (
+            <nav className={classes}>
+                <h1 className={ns.brand} ><a>To<span>Do</span>App</a></h1>
+
+                <ul>
+                    <li><Link href='/'><LinkStyles>Home</LinkStyles></Link></li>
+                    <li><Link href='/about'><LinkStyles>About</LinkStyles></Link></li>
+                    <li><Link href='/login'><LinkStyles>Login</LinkStyles></Link></li>
+                    <li><Link href='/register'><LinkStyles>Register</LinkStyles></Link></li>
+
+                </ul>
+            </nav>
+        )
+    }
 }
 
-export default Navbar

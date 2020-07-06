@@ -1,0 +1,205 @@
+
+.containLogin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-color: black;
+    border: 0px solid;
+    box-shadow: black;
+    width:400px;   /*media query*/
+    height:600px ;
+    position:absolute;
+    top:40%;/*media query*/
+    left:50%;
+    background-color: white;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+    
+}
+.contain{
+    background-color: #f6f6f6;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    
+}
+
+
+/*form style*/
+.form{
+    position: relative;
+    margin-top: 10%;
+}
+
+
+/*input style*/
+.textFieldClass{
+   
+    border: 2px solid grey;
+    margin: 40px 30px 10px;
+    position: relative;
+    width:300px; /*media query 270*/
+    height:35px;
+    padding: 3px 10px;
+    border-radius: 5px;
+    
+}
+.textFieldClass:hover{
+    border: 2px solid black;
+}
+
+.textField{
+    border:none;
+    width:270px; /*media query*/
+    height:30px;
+    padding: 3px 10px 2px;
+    font-size: medium;
+    background-color: white;
+
+}
+.textField:focus{
+    outline: none;
+    background-color: white;
+}
+
+.labelNormal{
+    display:none;
+    background-color: white;
+}
+.labelFocus{
+    position:absolute;
+    top:-11px;
+    display: inline;
+    left:20px;
+    padding:0px 2px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: white;
+    color:#137d60;
+    font-family:'Roboto',sans-serif;
+}
+
+/*forget password*/
+.fp{
+    display: flex;
+    width:280.5px; /*media query 256.5*/
+    padding: 0;
+    justify-content: flex-end;
+    margin: 0px 30px 0px auto; /*media query 30px*/
+    
+}
+.fp button{
+    padding: 0px;
+    margin: 0px;
+    font-family:'Roboto',sans-serif;
+    background: inherit;
+    border: none;
+    color:#0d61bf;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+
+/*button*/
+
+.button{
+display :inline-block;
+font-weight: 700;
+padding:15px 25px;
+border-radius:2em;
+margin:20px;
+box-sizing: border-box;
+text-decoration:none;
+font-family:'Roboto',sans-serif;
+color:#FFFFFF;
+background-color:#137d60;
+text-align:center;
+transition: all 0.2s;
+border: none;
+cursor: pointer;
+border:2px solid #137d60;
+}
+.button:hover {
+    border:2px solid #0096ff;
+}
+
+
+.buttoncon{
+    margin:20px;
+    
+}
+
+
+/*log*/
+
+.logo{
+    border-style: ridge;
+    border-color: black;
+    background-color: black;
+    color: white;
+    text-align: center;
+    width:100%;
+    padding: 0px;
+    margin: 0;
+    border: none;
+    position: absolute;
+    top:0px;
+    height:70px;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.logo span{
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top:50%;
+    left:50%;
+    text-align: center;
+    transform: translate(-50%,-50%);
+}
+
+/*signup*/
+.below{
+    text-align: center;
+     top:110px;
+     position: relative;
+    right:50px;
+    text-align: center;
+ 
+}
+
+.below span{
+    padding-right: 10px;
+    margin: 0px;
+    font-family:'Roboto',sans-serif;
+
+}
+
+
+
+@media only screen and (max-width:430px){
+ .containLogin{
+     width:314px;
+     top:50%;
+ 
+  }
+  .textFieldClass{
+      width:250px;
+  }  
+  .textField{
+      width:240px;
+  } 
+  .fp button{
+      font-size: 14px;
+  }
+  .below{
+    right:30px
+  }
+}
